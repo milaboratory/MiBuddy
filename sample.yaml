@@ -1,0 +1,41 @@
+- run:
+  date: 2012-08-06
+  sequencer: Illumina GLX 2500.75 b Ultra+
+  place: Brno
+  cDNA_library_type: RACE, Jmix multiplex
+  species: hsa
+  type: RepSeq
+  mixcr.parametrs:
+    chains: [IGH, TRB]
+  migec.parametrs:
+    overseq:
+  paterns:
+    - patern: Left=^<<NNNA]]TTAGACA(?<G1>NNNNN)GACATATTA Right=^<<NNNA]]TTA((NNNNNNN:G2))CA(CCAGGA|CCTTGA)AAGGCC
+      samples:
+        - sample:
+          project_name:
+          ids:
+          replica: 2
+          individ: MR Smirnov
+          barcode: G1=TT[AT]GACA G2=GACATTAT
+          organism:
+          strain:
+          HLA_genotype:
+          age:
+          treatment:
+          time_after_treatment:
+          health_status:
+          tissue:
+          cell_population: treg CD25+/CD45-
+          chains: [TRB, TRA]
+          description:
+          tags: [CD8, Naive, Biopsy]
+
+          
+
+
+
+
+
+
+
