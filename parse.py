@@ -1,5 +1,5 @@
 import yaml
-import copy
+
 import os
 
 
@@ -59,74 +59,6 @@ def load_yaml(file_name):
     return {'path': file_name, 'root': yml}
 
 
-def extract_actions(yam):
-    return traverse_down({}, "root", yam)
-
-
-def calculate_results_on_traverse_down(current_map, current_key, current_element):
-    result = {}
-    for parser in parsers:
-        parser_name = parser.get_parser_name()
-        current_result = parser.on_traverse_down(current_map, current_key, current_element)
-        if current_result:
-            result[parser_name] = parser.on_traverse_down(current_map, current_key, current_element)
-    return result
-
-
-def calculate_results_on_traverse_up(current_results, current_map, current_key, current_element):
-    actions = []
-    for parser in parsers:
-        parser_name = parser.get_parser_name()
-        parser_actions = parser.on_traverse_up(current_results[parser_name], current_map, current_key,
-                                               current_element)
-        if parser_actions:
-            actions += parser_actions
-    return actions
-
-
-def add_results_for_all_parsers(aggregated_results, result):
-    for parser in parsers:
-        parser_name = parser.get_parser_name()
-        if parser_name in result:
-            if parser_name in aggregated_results:
-                aggregated_results[parser_name] = parser.aggregate(aggregated_results[parser_name],
-                                                                   result[parser_name])
-            else:
-                aggregated_results[parser_name] = result[parser_name]
-
-
-def traverse_down(current_map, current_key, current_element):
-    '''
-    :return: (current_result, actions)
-    '''
-    print("current_map = " + str(current_map))
-    print("current_key = " + str(current_key))
-    print("current_element = " + str(current_element))
-    print("========")
-
-    aggregated_results = {}
-    aggregated_actions = []
-    if isinstance(current_element, list):
-        for e in current_element:
-            (current_result, current_actions) = traverse_down(current_map, current_key, e)
-            add_results_for_all_parsers(aggregated_results, current_result)
-            aggregated_actions += current_actions
-
-    elif isinstance(current_element, dict):
-        aggregated_results = calculate_results_on_traverse_down(current_map, current_key, current_element)
-        for key, value in current_element.iteritems():
-            new_current_map = copy.deepcopy(current_map)
-            for key1, value1 in current_element.iteritems():
-                if key1 != key:
-                    new_current_map[key1] = value1
-            (current_result, current_actions) = traverse_down(new_current_map, key, value)
-            add_results_for_all_parsers(aggregated_results, current_result)
-            aggregated_actions += current_actions
-        aggregated_actions += calculate_results_on_traverse_up(aggregated_results,
-                                                               current_map, current_key,
-                                                               current_element)
-
-    return aggregated_results, aggregated_actions
 
 
 with open('traverse_test.yaml') as f:
