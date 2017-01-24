@@ -10,7 +10,7 @@
   migec.parametrs:
     overseq:
   paterns:
-    - patern: Left=^<<NNNA]]TTAGACA(?<G1>NNNNN)GACATATTA Right=^<<NNNA]]TTA((NNNNNNN:G2))CA(CCAGGA|CCTTGA)AAGGCC
+    - pattern: Left=^<<NNNA]]TTAGACA(?<G1>NNNNN)GACATATTA Right=^<<NNNA]]TTA((NNNNNNN:G2))CA(CCAGGA|CCTTGA)AAGGCC
       samples:
         - sample:
           project_name:
