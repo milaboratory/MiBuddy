@@ -159,6 +159,6 @@ class Traverser:
                                                                         current_map, current_key,
                                                                         current_element)
 
-        # In case of terminal leafs, both above ifs will fail, and  aggregated_results = {}, aggregated_actions = []
+        # In case of terminal leafs, both above ifs will fail, and aggregated_results = {}, aggregated_actions = []
         # Terminal leafs effectively will not be passed to any parsers, will just be ignored
         return aggregated_results, aggregated_actions
