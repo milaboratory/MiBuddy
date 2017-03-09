@@ -1,0 +1,330 @@
+- .:
+  - .:
+    - G1_barcode: AAACT
+      G2_barcode: GACAA
+      age: 18 month
+      name: m12.1_SPL
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: SPL
+    - G1_barcode: AAGCC
+      G2_barcode: CTATC
+      age: 18 month
+      name: m12.1_LN
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: LN
+    - G1_barcode: AAGGT
+      G2_barcode: CTGTT
+      age: 18 month
+      name: m12.1_PBMC
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: PBMC
+    - G1_barcode: ACAAT
+      G2_barcode: AACTC
+      age: 18 month
+      name: m2.1_SPL
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: PBMC
+    - G1_barcode: AGACA
+      G2_barcode: AGAGA
+      age: 18 month
+      name: m2.1_LN
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: LN
+    - G1_barcode: AGATG
+      G2_barcode: TGCCT
+      age: 18 month
+      name: m11.1_THY
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: THY
+    - G1_barcode: AGCCG
+      G2_barcode: TGCGA
+      age: 18 month
+      name: m21_PBMC
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: SPL
+    - G1_barcode: AGGCT
+      G2_barcode: AATTG
+      age: 18 month
+      name: m1.2_SPL
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: SPL
+    - G1_barcode: AGGGA
+      G2_barcode: CGACT
+      age: 18 month
+      name: m1.2_LN
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: LN
+    - G1_barcode: AGTAA
+      G2_barcode: ACTGA
+      age: 18 month
+      name: m1.2_PBMC
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: PBMC
+    - G1_barcode: AGTGG
+      G2_barcode: TATGA
+      age: 18 month
+      name: m7.2_SPL
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: SPL
+    - G1_barcode: ATCGC
+      G2_barcode: TGTCC
+      age: 18 month
+      name: m12.1_THY
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: THY
+    - G1_barcode: ATGAC
+      G2_barcode: ATGGA
+      age: 18 month
+      name: m15.1_PBMC
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: PBMC
+    - G1_barcode: ATGTG
+      G2_barcode: AATGA
+      age: 18 month
+      name: m15.1_LN
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: LN
+    - G1_barcode: ATTGT
+      G2_barcode: TGTGA
+      age: 18 month
+      name: m15.1_SPL
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: SPL
+    - G1_barcode: ATTTC
+      G2_barcode: TGGCA
+      age: 18 month
+      name: m14.1_PBMC
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: PBMC
+    - G1_barcode: CACAG
+      G2_barcode: TGATT
+      age: 18 month
+      name: m14.1_SPL
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: SPL
+    - G1_barcode: CAGAT
+      G2_barcode: TGCTC
+      age: 18 month
+      name: m14.1_LN
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: LN
+    - G1_barcode: CCCGC
+      G2_barcode: ATCGA
+      age: 18 month
+      name: m7.2_PBMC
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: PBMC
+    - G1_barcode: CCTGT
+      G2_barcode: TGAAA
+      age: 18 month
+      name: m8.1_THY
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: THY
+    - G1_barcode: CGAGC
+      G2_barcode: TCGAC
+      age: 18 month
+      name: m1.2_THY
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: THY
+    - G1_barcode: GAAAT
+      G2_barcode: TCTTT
+      age: 18 month
+      name: m3.1_THY
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: SPL
+    - G1_barcode: GACCC
+      G2_barcode: CAGCG
+      age: 18 month
+      name: m6.2_SPL
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: LN
+    - G1_barcode: GACTT
+      G2_barcode: CCATG
+      age: 18 month
+      name: m6.2_LN
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: SPL
+    - G1_barcode: GAGCA
+      G2_barcode: CTACG
+      age: 18 month
+      name: m6.2_PBMC
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: THY
+    - G1_barcode: GAGGG
+      G2_barcode: TCTGG
+      age: 18 month
+      name: m7.2_THY
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: THY
+    - G1_barcode: GCAAA
+      G2_barcode: CTCTG
+      age: 18 month
+      name: m14.1_THY
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: THY
+    - G1_barcode: GCAGT
+      G2_barcode: CGCTT
+      age: 18 month
+      name: m15.1_THY
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: THY
+    - G1_barcode: GCTGC
+      G2_barcode: CTCCT
+      age: 18 month
+      name: m3.1.3_SPL
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: PBMC
+    - G1_barcode: GCTTA
+      G2_barcode: CGCAA
+      age: 18 month
+      name: m3.1.3_LN
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: THY
+    - G1_barcode: GGACC
+      G2_barcode: ATCGA
+      age: 18 month
+      name: m3.1.3_PBMC
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: LN
+    - G1_barcode: GGATA
+      G2_barcode: GATGT
+      age: 18 month
+      name: m3.1_SPL
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: PBMC
+    - G1_barcode: GGCAT
+      G2_barcode: GATCG
+      age: 18 month
+      name: m3.1_LN
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: THY
+    - G1_barcode: GGCGC
+      G2_barcode: GATAC
+      age: 18 month
+      name: m3.1_PBMC
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: LN
+    - G1_barcode: GGCTG
+      G2_barcode: CATAA
+      age: 18 month
+      name: m8.1_SPL
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: SPL
+    - G1_barcode: GGGAC
+      G2_barcode: ACCAA
+      age: 18 month
+      name: m8.1_LN
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: LN
+    - G1_barcode: GGTAG
+      G2_barcode: CAAGG
+      age: 18 month
+      name: m8.1_PBMC
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: PBMC
+    - G1_barcode: GGTCA
+      G2_barcode: CTTTA
+      age: 18 month
+      name: m11.1_SPL
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: SPL
+    - G1_barcode: GTAGC
+      G2_barcode: CTTGG
+      age: 18 month
+      name: m11.1_LN
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: LN
+    - G1_barcode: GTCAC
+      G2_barcode: CTAAA
+      age: 18 month
+      name: m11.1_PBMC
+      organism: Mus Musculus
+      project_name: Mice_Tissues
+      strain: BALB/c
+      tissue: PBMC
+    left: (G1:NNNNN)cagtggtatcaacgcagagt(UMI:NNNNtNNNNtNNNN)tctt
+    right: (G2:NNNNN)gtcacatttctcagatcct
+  Date: 11/1/14
+  Place: Brno
+  R1: P109_CAGATC_L006_R1_001.fastq.gz
+  R2: P109_CAGATC_L006_R2_001.fastq.gz
+  Sequencer: MiSeq
+  cDNA_library_type: RACE
