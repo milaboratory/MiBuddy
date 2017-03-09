@@ -323,6 +323,7 @@
     left: (G1:NNNNN)cagtggtatcaacgcagagt(UMI:NNNNtNNNNtNNNN)tctt
     right: (G2:NNNNN)gtcacatttctcagatcct
   Date: 11/1/14
+  Multiplex: 'True'
   Place: Brno
   R1: P109_CAGATC_L006_R1_001.fastq.gz
   R2: P109_CAGATC_L006_R2_001.fastq.gz
