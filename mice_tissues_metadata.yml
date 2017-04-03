@@ -241,8 +241,8 @@
       strain: BALB/c
       tissue: PBMC
     pattern: (SB1:NNNNN)cagtggtatcaacgcagagt(UMI:NNNNtNNNNtNNNN)tctt ~ (SB2:NNNNN)gtcacatttctcagatcct
-  input.r1: P109_CAGATC_L006_R1_001.fastq.gz
-  input.r2: P109_CAGATC_L006_R2_001.fastq.gz
+  r1: P109_CAGATC_L006_R1_001.fastq.gz
+  r2: P109_CAGATC_L006_R2_001.fastq.gz
   pattern.umiassemble.by: UMI
   perform.umiassemble.on: pattern.collected
   perform.mixcr.on: assembled.by.umi
