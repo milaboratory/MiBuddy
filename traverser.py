@@ -42,7 +42,7 @@ class AbstractParser(object):
 
 
 class Traverser:
-    def __init__(self, log_steps=False, *parsers):
+    def __init__(self, *parsers, log_steps=False):
         self.log_steps = log_steps
         self.parsers = parsers
 
@@ -83,7 +83,7 @@ class Traverser:
         actions = []
         for parser in self.parsers:
             parser_name = parser.get_parser_name()
-            parser_actions = parser.on_traverse_up(current_results[parser_name], current_map, current_key,
+            parser_actions = parser.on_traverse_up(current_results.get(parser_name, None), current_map, current_key,
                                                    current_element)
             if parser_actions:
                 actions += parser_actions
@@ -113,7 +113,7 @@ class Traverser:
         :param current_element: current element (map or array, or string in case of terminal yaml leaf)
         :return:
         """
-        if self.log_steps:
+        if self.log_steps and (isinstance(current_element, list) or isinstance(current_element, dict)):
             print("current_map = " + str(current_map))
             print("current_key = " + str(current_key))
             print("current_element = " + str(current_element))
@@ -139,10 +139,10 @@ class Traverser:
             aggregated_results = self.calculate_results_on_traverse_down(current_map, current_key, current_element)
 
             # Iterating over all nested maps/arrays and process them recursively
-            for key, value in current_element.iteritems():
+            for key, value in current_element.items():
                 # Making deep copy of current_map
                 new_current_map = copy.deepcopy(current_map)
-                for key1, value1 in current_element.iteritems():
+                for key1, value1 in current_element.items():
                     if key1 != key:
                         # Adding parameters form current node
                         new_current_map[key1] = value1

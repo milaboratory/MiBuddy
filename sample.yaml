@@ -26,10 +26,11 @@
           time_after_treatment:
           health_status:
           tissue:
-          cell_population: treg CD25+/CD45-
+          cell_population: treg
+          gates: CD25+, CD45-
           chains: [TRB, TRA]
-          description:
-          tags: [CD8, Naive, Biopsy]
+          description: sadas
+          ff: CD8, Naive, Biopsy
 
           
 

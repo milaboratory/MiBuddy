@@ -2,6 +2,9 @@ import yaml
 
 import os
 
+from traverser import Traverser
+
+
 class MiGECBarcodeFileRecord:
     def __init__(self, sample_name, master_barcode, slave_barcode, R1_path, R2_path):
         self.sample_name = sample_name
@@ -48,9 +51,11 @@ def load_yaml(file_name):
     return {'path': file_name, 'root': yml}
 
 
-with open('traverse_test.yaml') as f:
+with open('mice_tissues_metadata.yml') as f:
     s = yaml.load(f)
-    (results, actions) = extract_actions(s)
+    traverser = Traverser(*parsers, log_steps=True)
+    traverser.traverse(s)
+    # (results, actions) = extract_actions(s)
     print("++++++++")
-    print("final result = " + str(results))
-    print("final actions = " + str(actions))
+    # print("final result = " + str(results))
+    # print("final actions = " + str(actions))
