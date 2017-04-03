@@ -2,7 +2,7 @@ import yaml
 
 import os
 
-from traverser import Traverser
+from traverser import Traverser, AbstractParser
 
 
 class MiGECBarcodeFileRecord:
@@ -24,25 +24,48 @@ class MiGECAction:
         self.output_folder = output_folder
 
 
-class MiGECParser:
+class MiGECParser(AbstractParser):
     def get_parser_name(self):
         return "migec"
 
-    def on_traverse_down(self, current_map, current_key, current_element):
-        if "sub_field_3" in current_element:
-            return [current_map["v1"] + current_element["sub_field_3"]]
+    def on_traverse_down(self, fields, current_fields):
+        print("GEC: >>>>>>>>>>>>>>>>>>>>>")
+        print("GEC: Field values: " + str(fields))
+        print("GEC: Fields: " + str(current_fields))
+        print("GEC: >>>>>>>>>>>>>>>>>>>>>")
+        if "pattern" in current_fields:
+            return None, {"stage": "pattern.matched"}
         else:
-            return None
+            return None, {}
 
-    def aggregate(self, result1, result2):
-        return result1 + result2
+    def on_traverse_up(self, aggregated_result, fields, current_fields):
+        print("GEC: <<<<<<<<<<<<<<<<<<<<<")
+        print("GEC: Field values: " + str(fields))
+        print("GEC: Fields: " + str(current_fields))
+        print("GEC: <<<<<<<<<<<<<<<<<<<<<")
+        return []
 
-    def on_traverse_up(self, current_result, current_map, current_key, current_element):
-        if "w1" in current_element:
-            return current_result
+
+class MiXCRParser:
+    def get_parser_name(self):
+        return "mixcr"
+
+    def on_traverse_down(self, fields, current_fields):
+        print("XCR: >>>>>>>>>>>>>>>>>>>>>")
+        print("XCR: Field values: " + str(fields))
+        print("XCR: Fields: " + str(current_fields))
+        print("XCR: >>>>>>>>>>>>>>>>>>>>>")
+        return None, {}
+
+    def on_traverse_up(self, aggregated_result, fields, current_fields):
+        print("XCR: <<<<<<<<<<<<<<<<<<<<<")
+        print("XCR: Field values: " + str(fields))
+        print("XCR: Fields: " + str(current_fields))
+        print("XCR: <<<<<<<<<<<<<<<<<<<<<")
+        return []
 
 
-parsers = [MiGECParser()]
+parsers = [MiGECParser(), MiXCRParser()]
 
 
 def load_yaml(file_name):
@@ -53,7 +76,7 @@ def load_yaml(file_name):
 
 with open('mice_tissues_metadata.yml') as f:
     s = yaml.load(f)
-    traverser = Traverser(*parsers, log_steps=True)
+    traverser = Traverser(*parsers)
     traverser.traverse(s)
     # (results, actions) = extract_actions(s)
     print("++++++++")
