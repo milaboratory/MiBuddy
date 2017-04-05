@@ -1,8 +1,5 @@
-import yaml
+from traverser import AbstractParser, format_string
 import re
-import os
-
-from traverser import Traverser, AbstractParser
 
 
 class MiGECBarcodeFileRecord:
@@ -25,9 +22,13 @@ class MiGECBarcodeFileRecord:
 
 
 class MiGECAction:
-    def __init__(self, records, output_folder):
+    def __init__(self, records, input_folder, output_folder):
         self.records = records
+        self.input_folder = input_folder
         self.output_folder = output_folder
+
+    def __repr__(self):
+        return str(self.input_folder + " -> " + self.output_folder + " : " + str(self.records))
 
 
 class MiGECParser(AbstractParser):
@@ -80,44 +81,7 @@ class MiGECParser(AbstractParser):
         # print("GEC: Results: " + str(aggregated_result))
         # print("GEC: <<<<<<<<<<<<<<<<<<<<<")
         if "r1" in current_fields:
-            return [MiGECAction(aggregated_result, "")]
+            return [MiGECAction(aggregated_result, fields["absolute.path"],
+                                format_string(fields["output.path"], fields))]
         else:
             return []
-
-
-class MiXCRParser:
-    def get_parser_name(self):
-        return "mixcr"
-
-    def on_traverse_down(self, fields, current_fields):
-        # print("XCR: >>>>>>>>>>>>>>>>>>>>>")
-        # print("XCR: Field values: " + str(fields))
-        # print("XCR: Fields: " + str(current_fields))
-        # print("XCR: >>>>>>>>>>>>>>>>>>>>>")
-        return None, {}
-
-    def on_traverse_up(self, aggregated_result, fields, current_fields):
-        # print("XCR: <<<<<<<<<<<<<<<<<<<<<")
-        # print("XCR: Field values: " + str(fields))
-        # print("XCR: Fields: " + str(current_fields))
-        # print("XCR: <<<<<<<<<<<<<<<<<<<<<")
-        return []
-
-
-parsers = [MiGECParser(), MiXCRParser()]
-
-
-def load_yaml(file_name):
-    file_name = os.path.abspath(file_name)
-    yml = yaml.load(file_name)
-    return {'path': file_name, 'root': yml}
-
-
-with open('mice_tissues_metadata.yml') as f:
-    s = yaml.load(f)
-    traverser = Traverser(*parsers)
-    result = traverser.traverse(s)
-    # (results, actions) = extract_actions(s)
-    print(result)
-    # print("final result = " + str(results))
-    # print("final actions = " + str(actions))

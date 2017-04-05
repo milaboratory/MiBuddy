@@ -1,4 +1,29 @@
 import copy
+import re
+
+
+def merge_dicts(base, additional):
+    """
+    Merge fields from additional dict to base dict, taking into account additional MiBuddy merging rules.
+    """
+    result = copy.deepcopy(base)
+    for key, value in additional.items():
+        if key != ".":
+            result[key] = value
+    return result
+
+
+def format_string(string, fields):
+    return re.compile(r'\${([\w.]+)}', re.IGNORECASE).sub(lambda m: fields[m.group(1)], string)
+
+
+def without_dot(d):
+    if "." in d:
+        d = copy.deepcopy(d)
+        del d["."]
+        return d
+    else:
+        return d
 
 
 class AbstractParser(object):
@@ -54,13 +79,14 @@ class Traverser:
         self.log_steps = log_steps
         self.parsers = parsers
 
-    def traverse(self, yam):
+    def traverse(self, yam, fields):
         """
         Main method of the class. Traverse input structure using provided set of parsers and return list of actions.
         :param yam: content of yaml file
+        :param fields: initial fields
         :return: list of actions
         """
-        return self.traverse_down({"stage": "input"}, yam)[1]
+        return reversed(self.traverse_down(fields, yam)[1])
 
     def calculate_results_on_traverse_up(self, results, fields_snapshots):
         """
@@ -97,15 +123,6 @@ class Traverser:
                 else:
                     aggregated_results[parser_name] = result[parser_name]
 
-    @staticmethod
-    def without_dot(d):
-        if "." in d:
-            d = copy.deepcopy(d)
-            del d["."]
-            return d
-        else:
-            return d
-
     def traverse_down(self, fields, raw_node):
         """
         Method to recursively traverse the tree
@@ -116,7 +133,7 @@ class Traverser:
         if self.log_steps and (isinstance(raw_node, list) or isinstance(raw_node, dict)):
             print("current_map = " + str(fields))
             if isinstance(raw_node, dict):
-                print("current_node = " + str(Traverser.without_dot(raw_node)))
+                print("current_node = " + str(without_dot(raw_node)))
             else:
                 print("current_element = list")
             print("========")
@@ -138,14 +155,12 @@ class Traverser:
         # Processing dict node (YAML map node)
         elif isinstance(raw_node, dict):
             # Making deep copy of fields
-            fields = copy.deepcopy(fields)
-            current_fields = set()
-            for key, value in raw_node.items():
-                if key != '.':
-                    # Adding fields form current node
-                    fields[key] = value
-                    # Saving information on which fields came from current node
-                    current_fields.add(key)
+            fields = merge_dicts(fields, raw_node)
+
+            # Calculate fields from current level
+            current_fields = set(raw_node.keys())
+            if "." in current_fields:
+                current_fields.remove(".")
 
             fields_snapshots = []
             # Pass current node to parser to calculate intermediate results using their on_traverse_down methods
@@ -158,9 +173,7 @@ class Traverser:
                     aggregated_results[parser_name] = current_result
 
                 if additional_fields:
-                    for key, value in additional_fields.items():
-                        fields[key] = value
-                        current_fields.add(key)
+                    fields = merge_dicts(fields, additional_fields)
 
                     if self.log_steps:
                         print("node updated by " + parser_name)

@@ -1,0 +1,3 @@
+---
+perform.mixcr.on: assembled.by.umi
+output.path: /output/${relative.path}
