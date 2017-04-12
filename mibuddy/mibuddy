@@ -2,5 +2,4 @@
 
 from main import main
 
-print("HUY!" + str(5))
 main()

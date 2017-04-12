@@ -1,3 +1,3 @@
 ---
-perform.mixcr.on: assembled.by.umi
+perform.clonotyping.on: assembled.by.umi
 output.path: /output/${relative.path}

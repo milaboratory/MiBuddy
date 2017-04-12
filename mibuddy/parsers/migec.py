@@ -1,18 +1,20 @@
 from traverser import AbstractParser, format_string
 import re
+import os.path as op
 
 
 class MiGECBarcodeFileRecord:
-    def __init__(self, sample_name, master_barcode, slave_barcode, R1_path, R2_path):
+    def __init__(self, sample_name, master_barcode, slave_barcode, r1_path, r2_path, do_assemble):
         self.sample_name = sample_name
         self.master_barcode = master_barcode
         self.slave_barcode = slave_barcode
-        self.R1_path = R1_path
-        self.R2_path = R2_path
+        self.r1_path = r1_path
+        self.r2_path = r2_path
+        self.do_assemble = do_assemble
 
     def get_line(self):
         return self.sample_name + "\t" + self.master_barcode + "\t" + self.slave_barcode + \
-               "\t" + self.R1_path + "\t" + self.R2_path
+               "\t" + self.r1_path + "\t" + self.r2_path + "\t" + self.do_assemble
 
     def __repr__(self):
         return self.get_line()
@@ -36,10 +38,6 @@ class MiGECParser(AbstractParser):
         return "migec"
 
     def on_traverse_down(self, fields, current_fields):
-        # print("GEC: >>>>>>>>>>>>>>>>>>>>>")
-        # print("GEC: Field values: " + str(fields))
-        # print("GEC: Fields: " + str(current_fields))
-        # print("GEC: >>>>>>>>>>>>>>>>>>>>>")
         do_collect = False
         if "pattern" in fields:
             pattern = fields["pattern"]
@@ -52,10 +50,30 @@ class MiGECParser(AbstractParser):
                     do_collect = True
 
             if do_collect:
+                do_assemble = False
                 if "pattern.umiassemble.by" in fields:
-                    pattern = re.compile(r"\(" + fields["pattern.umiassemble.by"] + r":([ACGTRYSWKMBDHVN]+)\)",
-                                         re.IGNORECASE).sub(
-                        r"\1", pattern)
+                    # Separating UMI patterns to assemble by
+                    umi_assembling_groups = fields["pattern.umiassemble.by"].split("+")
+
+                    pattern_without_umi = pattern
+
+                    # Validating groups
+                    for umi_assembling_group in umi_assembling_groups:
+                        rp = re.compile(r"\(" + umi_assembling_group + r":([ACGTRYSWKMBDHVN]+)\)", re.IGNORECASE)
+                        groups = rp.findall(pattern)
+                        assert len(groups) == 1, "wrong number of groups with name " + umi_assembling_group
+                        barcode_string = groups[0]
+                        wrong_symbols = re.compile(r"([^N]+)").findall(barcode_string)
+                        assert len(wrong_symbols) == 0, \
+                            "wrong symbols in UMI group (only N letters supported) found \"" + wrong_symbols[0] + \
+                            "\" in \"" + barcode_string + "\""
+                        pattern = rp.sub(r"\1", pattern)
+                        pattern_without_umi = rp.sub("", pattern_without_umi)
+
+                    assert "N" not in pattern_without_umi, \
+                        "\"N\" is not supported outside UMI assembling group: " + fields["pattern"]
+
+                output_path = format_string(fields["output.path"], fields)
                 pattern = pattern.replace(" ", "")
                 patterns = pattern.split("~")
                 assert "name" in current_fields, "no sample name is provided"
@@ -63,23 +81,19 @@ class MiGECParser(AbstractParser):
                 sample_name = fields["name"]
                 if len(patterns) == 1:
                     assert "r2" not in fields, "single sided pattern for paired-end input"
-                    return [MiGECBarcodeFileRecord(sample_name, patterns[0], ".", fields["r1"],
-                                                   ".")], {"stage": "assembled.by.umi",
-                                                           "r1": sample_name + "_R0.fastq.gz"}
+                    return [MiGECBarcodeFileRecord(sample_name, patterns[0], ".", fields["r1"], "."), do_assemble], \
+                           {"stage": "assembled.by.umi",
+                            "r1": op.join(output_path, sample_name + "_R0.fastq.gz")}
                 else:
                     assert "r2" in fields, "paired end pattern for single-end input"
                     return [MiGECBarcodeFileRecord(sample_name, patterns[0], patterns[1], fields["r1"],
-                                                   fields["r2"])], {"stage": "assembled.by.umi",
-                                                                    "r1": sample_name + "_R1.fastq.gz",
-                                                                    "r2": sample_name + "_R2.fastq.gz"}
+                                                   fields["r2"], do_assemble)], \
+                           {"stage": "assembled.by.umi",
+                            "r1": op.join(output_path, sample_name + "_R1.fastq.gz"),
+                            "r2": op.join(output_path, sample_name + "_R2.fastq.gz")}
         return None, {}
 
     def on_traverse_up(self, aggregated_result, fields, current_fields):
-        # print("GEC: <<<<<<<<<<<<<<<<<<<<<")
-        # print("GEC: Field values: " + str(fields))
-        # print("GEC: Fields: " + str(current_fields))
-        # print("GEC: Results: " + str(aggregated_result))
-        # print("GEC: <<<<<<<<<<<<<<<<<<<<<")
         if "r1" in current_fields:
             return [MiGECAction(aggregated_result, fields["absolute.path"],
                                 format_string(fields["output.path"], fields))]

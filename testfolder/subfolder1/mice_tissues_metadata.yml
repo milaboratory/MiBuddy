@@ -240,12 +240,11 @@
       name: m11.1_PBMC
       strain: BALB/c
       tissue: PBMC
-    pattern: (SB1:NNNNN)cagtggtatcaacgcagagt(UMI:NNNNtNNNNtNNNN)tctt ~ (SB2:NNNNN)gtcacatttctcagatcct
+    pattern: (SB1:NNNNN)cagtggtatcaacgcagagt(UMI1:NNNN)t(UMI2:NNNN)t(UMI3:NNNN)tctt ~ (SB2:NNNNN)gtcacatttctcagatcct
   r1: P109_CAGATC_L006_R1_001.fastq.gz
   r2: P109_CAGATC_L006_R2_001.fastq.gz
-  pattern.umiassemble.by: UMI
+  pattern.umiassemble.by: UMI1+UMI2+UMI3
   perform.umiassemble.on: pattern.collected
-  perform.mixcr.on: assembled.by.umi
   date: 11/1/14
   organism: Mus Musculus
   project_name: Mice_Tissues
