@@ -1,20 +1,31 @@
+from action import AbstractAction, CreateFile
 from traverser import AbstractParser, format_string
 import re
 import os.path as op
 
 
-class MiGECBarcodeFileRecord:
-    def __init__(self, sample_name, master_barcode, slave_barcode, r1_path, r2_path, do_assemble):
+class MiGECBarcodeFileRecord(object):
+    def __init__(self, paired, sample_name,
+                 master_barcode, slave_barcode,
+                 r1_path, r2_path,
+                 out_r1_path, out_r2_path,
+                 asmb_r1_path, asmb_r2_path,
+                 do_assemble):
+        self.paired = paired
         self.sample_name = sample_name
         self.master_barcode = master_barcode
         self.slave_barcode = slave_barcode
         self.r1_path = r1_path
         self.r2_path = r2_path
+        self.out_r1_path = out_r1_path
+        self.out_r2_path = out_r2_path
+        self.asmb_r1_path = asmb_r1_path
+        self.asmb_r2_path = asmb_r2_path
         self.do_assemble = do_assemble
 
     def get_line(self):
         return self.sample_name + "\t" + self.master_barcode + "\t" + self.slave_barcode + \
-               "\t" + self.r1_path + "\t" + self.r2_path + "\t" + self.do_assemble
+               "\t" + self.r1_path + "\t" + self.r2_path
 
     def __repr__(self):
         return self.get_line()
@@ -23,11 +34,17 @@ class MiGECBarcodeFileRecord:
         return self.get_line()
 
 
-class MiGECAction:
+class MiGECAction(AbstractAction):
     def __init__(self, records, input_folder, output_folder):
         self.records = records
         self.input_folder = input_folder
         self.output_folder = output_folder
+
+    def get_commands(self):
+        content = "#SAMPLE_ID\tMASTER\tSLAVE\n"
+        for record in self.records:
+            content
+        return CreateFile(op.join(self.output_folder, "barcodes.txt"), ""),
 
     def __repr__(self):
         return str(self.input_folder + " -> " + self.output_folder + " : " + str(self.records))
@@ -79,18 +96,35 @@ class MiGECParser(AbstractParser):
                 assert "name" in current_fields, "no sample name is provided"
                 assert "r1" in fields, "no input file for r1"
                 sample_name = fields["name"]
-                if len(patterns) == 1:
-                    assert "r2" not in fields, "single sided pattern for paired-end input"
-                    return [MiGECBarcodeFileRecord(sample_name, patterns[0], ".", fields["r1"], "."), do_assemble], \
+                if "r2" not in fields:
+                    assert len(patterns) == 2 in fields, "paired end pattern for single-end input"
+                    out_r_path = op.join(output_path, sample_name + "_R0.fastq.gz")
+                    return [MiGECBarcodeFileRecord(sample_name, patterns[0], None, fields["r1"], "."), do_assemble], \
                            {"stage": "assembled.by.umi",
                             "r1": op.join(output_path, sample_name + "_R0.fastq.gz")}
                 else:
-                    assert "r2" in fields, "paired end pattern for single-end input"
-                    return [MiGECBarcodeFileRecord(sample_name, patterns[0], patterns[1], fields["r1"],
-                                                   fields["r2"], do_assemble)], \
-                           {"stage": "assembled.by.umi",
-                            "r1": op.join(output_path, sample_name + "_R1.fastq.gz"),
-                            "r2": op.join(output_path, sample_name + "_R2.fastq.gz")}
+                    out_r1_path = op.join(output_path, sample_name + "_R1.fastq.gz")
+                    out_r2_path = op.join(output_path, sample_name + "_R2.fastq.gz")
+                    asmb_r1_path = op.join(output_path, sample_name + "_asmb_R1.fastq.gz")
+                    asmb_r2_path = op.join(output_path, sample_name + "_asmb_R2.fastq.gz")
+                    if do_assemble:
+                        return [MiGECBarcodeFileRecord(True, sample_name, patterns[0], patterns[1],
+                                                       fields["r1"], fields["r2"],
+                                                       out_r1_path, out_r2_path,
+                                                       asmb_r1_path, asmb_r2_path,
+                                                       True)], \
+                               {"stage": "assembled.by.umi",
+                                "r1": asmb_r1_path,
+                                "r2": asmb_r2_path}
+                    else:
+                        return [MiGECBarcodeFileRecord(True, sample_name, patterns[0], patterns[1],
+                                                       fields["r1"], fields["r2"],
+                                                       out_r1_path, out_r2_path,
+                                                       None, None,
+                                                       False)], \
+                               {"stage": "assembled.by.umi",
+                                "r1": out_r1_path,
+                                "r2": out_r2_path}
         return None, {}
 
     def on_traverse_up(self, aggregated_result, fields, current_fields):
