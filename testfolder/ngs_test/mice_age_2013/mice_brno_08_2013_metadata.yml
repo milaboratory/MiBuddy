@@ -1,0 +1,126 @@
+- .:
+  - .:
+    - age: 23m
+      chains: TRB
+      name: old_3
+      pattern.collect.SB1: AATGC
+      project_name: Mice_aging
+      strain: C57BL/6
+      tissue: PBMC
+    - age: 23m
+      chains: TRB
+      name: old_9
+      pattern.collect.SB1: ATGCA
+      project_name: Mice_aging
+      strain: C57BL/6
+      tissue: PBMC
+    - age: 4m
+      chains: TRB
+      name: young_3
+      pattern.collect.SB1: CACCA
+      project_name: Mice_aging
+      strain: C57BL/6
+      tissue: PBMC
+    - age: 4m
+      chains: TRB
+      name: young_8
+      pattern.collect.SB1: TGAAA
+      project_name: Mice_aging
+      strain: C57BL/6
+      tissue: PBMC
+    pattern: cagtggtatcaacgcagagtac(UMI:NNNNNNt(SB1:NNNNN)tNNNNNNtctt)
+  - .:
+    - age: 4m
+      chains: TRB
+      name: young_4
+      pattern.collect.SB1: ATTCG
+      project_name: Mice_aging
+      strain: C57BL/6
+      tissue: PBMC
+    - age: 23m
+      chains: TRB
+      name: old_7
+      pattern.collect.SB1: CCGTC
+      project_name: Mice_aging
+      strain: C57BL/6
+      tissue: PBMC
+    - age: 23m
+      chains: TRB
+      name: old_8
+      pattern.collect.SB1: CGTAT
+      project_name: Mice_aging
+      strain: C57BL/6
+      tissue: PBMC
+    - age: 23m
+      chains: TRB
+      name: old_6
+      pattern.collect.SB1: CTGAG
+      project_name: Mice_aging
+      strain: C57BL/6
+      tissue: PBMC
+    - age: 4m
+      chains: TRB
+      name: young_2
+      pattern.collect.SB1: GAATC
+      project_name: Mice_aging
+      strain: C57BL/6
+      tissue: PBMC
+    - age: 4m
+      chains: TRB
+      name: young_1
+      pattern.collect.SB1: GTCTA
+      project_name: Mice_aging
+      strain: C57BL/6
+      tissue: PBMC
+    - age: 4m
+      chains: TRB
+      name: young_7
+      pattern.collect.SB1: TACGT
+      project_name: Mice_aging
+      strain: C57BL/6
+      tissue: PBMC
+    pattern: cagtggtatcaacgcagagtac(UMI:NNNNNtN(SB1:NNNNN)NtNNNNNNtctt)
+  - .:
+    - age: 23m
+      chains: TRB
+      name: old_4
+      pattern.collect.SB1: GCAAA
+      project_name: Mice_aging
+      strain: C57BL/6
+      tissue: PBMC
+    - age: 4m
+      chains: TRB
+      name: young_5
+      pattern.collect.SB1: GCTGC
+      project_name: Mice_aging
+      strain: C57BL/6
+      tissue: PBMC
+    - age: 4m
+      chains: TRB
+      name: young_6
+      pattern.collect.SB1: GGATA
+      project_name: Mice_aging
+      strain: C57BL/6
+      tissue: PBMC
+    - age: 23m
+      chains: TRB
+      name: old_1
+      pattern.collect.SB1: TAACC
+      project_name: Mice_aging
+      strain: C57BL/6
+      tissue: PBMC
+    - age: 23m
+      chains: TRB
+      name: old_2
+      pattern.collect.SB1: TCGAC
+      project_name: Mice_aging
+      strain: C57BL/6
+      tissue: PBMC
+    pattern: cagtggtatcaacgcagagtac(UMI:NNNNtNN(SB1:NNNNN)NNtNNNNNNtctt)
+  cdna_library_type: RACE
+  date: 01.08.2013
+  place: Brno
+  r1: mouseTCR_S1_L001_R1_001.fastq.gz
+  r2: mouseTCR_S1_L001_R2_001.fastq.gz
+  sequencer: MiSeq
+  species: Mus musculus

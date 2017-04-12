@@ -1,0 +1,254 @@
+- .:
+  - .:
+    - pattern.collect.SB1: AAACT
+      pattern.collect.SB2: GACAA
+      age: 18 month
+      name: m12.1_SPL
+      strain: BALB/c
+      tissue: SPL
+    - pattern.collect.SB1: AAGCC
+      pattern.collect.SB2: CTATC
+      age: 18 month
+      name: m12.1_LN
+      strain: BALB/c
+      tissue: LN
+    - pattern.collect.SB1: AAGGT
+      pattern.collect.SB2: CTGTT
+      age: 18 month
+      name: m12.1_PBMC
+      strain: BALB/c
+      tissue: PBMC
+    - pattern.collect.SB1: ACAAT
+      pattern.collect.SB2: AACTC
+      age: 18 month
+      name: m2.1_SPL
+      strain: BALB/c
+      tissue: PBMC
+    - pattern.collect.SB1: AGACA
+      pattern.collect.SB2: AGAGA
+      age: 18 month
+      name: m2.1_LN
+      strain: BALB/c
+      tissue: LN
+    - pattern.collect.SB1: AGATG
+      pattern.collect.SB2: TGCCT
+      age: 18 month
+      name: m11.1_THY
+      strain: BALB/c
+      tissue: THY
+    - pattern.collect.SB1: AGCCG
+      pattern.collect.SB2: TGCGA
+      age: 18 month
+      name: m21_PBMC
+      strain: BALB/c
+      tissue: SPL
+    - pattern.collect.SB1: AGGCT
+      pattern.collect.SB2: AATTG
+      age: 18 month
+      name: m1.2_SPL
+      strain: BALB/c
+      tissue: SPL
+    - pattern.collect.SB1: AGGGA
+      pattern.collect.SB2: CGACT
+      age: 18 month
+      name: m1.2_LN
+      strain: BALB/c
+      tissue: LN
+    - pattern.collect.SB1: AGTAA
+      pattern.collect.SB2: ACTGA
+      age: 18 month
+      name: m1.2_PBMC
+      strain: BALB/c
+      tissue: PBMC
+    - pattern.collect.SB1: AGTGG
+      pattern.collect.SB2: TATGA
+      age: 18 month
+      name: m7.2_SPL
+      strain: BALB/c
+      tissue: SPL
+    - pattern.collect.SB1: ATCGC
+      pattern.collect.SB2: TGTCC
+      age: 18 month
+      name: m12.1_THY
+      strain: BALB/c
+      tissue: THY
+    - pattern.collect.SB1: ATGAC
+      pattern.collect.SB2: ATGGA
+      age: 18 month
+      name: m15.1_PBMC
+      strain: BALB/c
+      tissue: PBMC
+    - pattern.collect.SB1: ATGTG
+      pattern.collect.SB2: AATGA
+      age: 18 month
+      name: m15.1_LN
+      strain: BALB/c
+      tissue: LN
+    - pattern.collect.SB1: ATTGT
+      pattern.collect.SB2: TGTGA
+      age: 18 month
+      name: m15.1_SPL
+      strain: BALB/c
+      tissue: SPL
+    - pattern.collect.SB1: ATTTC
+      pattern.collect.SB2: TGGCA
+      age: 18 month
+      name: m14.1_PBMC
+      strain: BALB/c
+      tissue: PBMC
+    - pattern.collect.SB1: CACAG
+      pattern.collect.SB2: TGATT
+      age: 18 month
+      name: m14.1_SPL
+      strain: BALB/c
+      tissue: SPL
+    - pattern.collect.SB1: CAGAT
+      pattern.collect.SB2: TGCTC
+      age: 18 month
+      name: m14.1_LN
+      strain: BALB/c
+      tissue: LN
+    - pattern.collect.SB1: CCCGC
+      pattern.collect.SB2: ATCGA
+      age: 18 month
+      name: m7.2_PBMC
+      strain: BALB/c
+      tissue: PBMC
+    - pattern.collect.SB1: CCTGT
+      pattern.collect.SB2: TGAAA
+      age: 18 month
+      name: m8.1_THY
+      strain: BALB/c
+      tissue: THY
+    - pattern.collect.SB1: CGAGC
+      pattern.collect.SB2: TCGAC
+      age: 18 month
+      name: m1.2_THY
+      strain: BALB/c
+      tissue: THY
+    - pattern.collect.SB1: GAAAT
+      pattern.collect.SB2: TCTTT
+      age: 18 month
+      name: m3.1_THY
+      strain: BALB/c
+      tissue: SPL
+    - pattern.collect.SB1: GACCC
+      pattern.collect.SB2: CAGCG
+      age: 18 month
+      name: m6.2_SPL
+      strain: BALB/c
+      tissue: LN
+    - pattern.collect.SB1: GACTT
+      pattern.collect.SB2: CCATG
+      age: 18 month
+      name: m6.2_LN
+      strain: BALB/c
+      tissue: SPL
+    - pattern.collect.SB1: GAGCA
+      pattern.collect.SB2: CTACG
+      age: 18 month
+      name: m6.2_PBMC
+      strain: BALB/c
+      tissue: THY
+    - pattern.collect.SB1: GAGGG
+      pattern.collect.SB2: TCTGG
+      age: 18 month
+      name: m7.2_THY
+      strain: BALB/c
+      tissue: THY
+    - pattern.collect.SB1: GCAAA
+      pattern.collect.SB2: CTCTG
+      age: 18 month
+      name: m14.1_THY
+      strain: BALB/c
+      tissue: THY
+    - pattern.collect.SB1: GCAGT
+      pattern.collect.SB2: CGCTT
+      age: 18 month
+      name: m15.1_THY
+      strain: BALB/c
+      tissue: THY
+    - pattern.collect.SB1: GCTGC
+      pattern.collect.SB2: CTCCT
+      age: 18 month
+      name: m3.1.3_SPL
+      strain: BALB/c
+      tissue: PBMC
+    - pattern.collect.SB1: GCTTA
+      pattern.collect.SB2: CGCAA
+      age: 18 month
+      name: m3.1.3_LN
+      strain: BALB/c
+      tissue: THY
+    - pattern.collect.SB1: GGACC
+      pattern.collect.SB2: ATCGA
+      age: 18 month
+      name: m3.1.3_PBMC
+      strain: BALB/c
+      tissue: LN
+    - pattern.collect.SB1: GGATA
+      pattern.collect.SB2: GATGT
+      age: 18 month
+      name: m3.1_SPL
+      strain: BALB/c
+      tissue: PBMC
+    - pattern.collect.SB1: GGCAT
+      pattern.collect.SB2: GATCG
+      age: 18 month
+      name: m3.1_LN
+      strain: BALB/c
+      tissue: THY
+    - pattern.collect.SB1: GGCGC
+      pattern.collect.SB2: GATAC
+      age: 18 month
+      name: m3.1_PBMC
+      strain: BALB/c
+      tissue: LN
+    - pattern.collect.SB1: GGCTG
+      pattern.collect.SB2: CATAA
+      age: 18 month
+      name: m8.1_SPL
+      strain: BALB/c
+      tissue: SPL
+    - pattern.collect.SB1: GGGAC
+      pattern.collect.SB2: ACCAA
+      age: 18 month
+      name: m8.1_LN
+      strain: BALB/c
+      tissue: LN
+    - pattern.collect.SB1: GGTAG
+      pattern.collect.SB2: CAAGG
+      age: 18 month
+      name: m8.1_PBMC
+      strain: BALB/c
+      tissue: PBMC
+    - pattern.collect.SB1: GGTCA
+      pattern.collect.SB2: CTTTA
+      age: 18 month
+      name: m11.1_SPL
+      strain: BALB/c
+      tissue: SPL
+    - pattern.collect.SB1: GTAGC
+      pattern.collect.SB2: CTTGG
+      age: 18 month
+      name: m11.1_LN
+      strain: BALB/c
+      tissue: LN
+    - pattern.collect.SB1: GTCAC
+      pattern.collect.SB2: CTAAA
+      age: 18 month
+      name: m11.1_PBMC
+      strain: BALB/c
+      tissue: PBMC
+    pattern: (SB1:NNNNN)cagtggtatcaacgcagagt(UMI1:NNNN)t(UMI2:NNNN)t(UMI3:NNNN)tctt ~ (SB2:NNNNN)gtcacatttctcagatcct
+  r1: P109_CAGATC_L006_R1_001.fastq.gz
+  r2: P109_CAGATC_L006_R2_001.fastq.gz
+  pattern.umiassemble.by: UMI1+UMI2+UMI3
+  perform.umiassemble.on: pattern.collected
+  date: 11/1/14
+  organism: Mus Musculus
+  project_name: Mice_Tissues
+  place: Brno
+  sequencer: MiSeq
+  cdna_library_type: RACE
+  import: my_awesome_standard_processing_pipeline.yaml

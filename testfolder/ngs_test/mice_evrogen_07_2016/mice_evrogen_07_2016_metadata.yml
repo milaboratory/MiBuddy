@@ -1,0 +1,272 @@
+- .:
+  - .:
+    - age: 65w
+      cell_population: CD4+_naive
+      chains: TRA
+      name: m7_ct_65w_th_CD4naive_a
+      pattern.collect.SB1: AAACT
+      pattern.collect.SB2: AACGG
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Thymus
+    - age: 65w
+      cell_population: CD8+_naive
+      chains: TRA
+      name: m7_ct_65w_th_CD8naive_a
+      pattern.collect.SB1: AAAGA
+      pattern.collect.SB2: AAGAG
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Thymus
+    - age: 65w
+      cell_population: DP
+      chains: TRA
+      name: m7_ct_65w_th_dp_a
+      pattern.collect.SB1: AAGGT
+      pattern.collect.SB2: AAGCC
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Thymus
+    - age: 65w
+      cell_population: CD4+_memory
+      chains: TRA
+      name: m7_ct_65w_th_CD4m_a
+      pattern.collect.SB1: ACAAT
+      pattern.collect.SB2: ACCCT
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Thymus
+    - age: 65w
+      cell_population: CD8+_memory
+      chains: TRA
+      name: m7_ct_65w_th_CD8mem_a
+      pattern.collect.SB1: AGACA
+      pattern.collect.SB2: ACCTG
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Thymus
+    - age: 65w
+      cell_population: CD4+_naive
+      chains: TRA
+      name: m9_ct_65w_spl_CD4naive_a
+      pattern.collect.SB1: AGATG
+      pattern.collect.SB2: ACGCG
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Spleen
+    - age: 65w
+      cell_population: CD4+_naive
+      chains: TRA
+      name: m9_ct_65w_spl_CD4mem_a
+      pattern.collect.SB1: AGCCG
+      pattern.collect.SB2: ACGGC
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Spleen
+    - age: 65w
+      cell_population: CD8+_naive
+      chains: TRA
+      name: m9_ct_65w_spl_CD8naive_a
+      pattern.collect.SB1: AGGCT
+      pattern.collect.SB2: ACTCC
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Spleen
+    - age: 65w
+      cell_population: CD8+_memory
+      chains: TRA
+      name: m9_ct_65w_spl_CD8mem_a
+      pattern.collect.SB1: AGGGA
+      pattern.collect.SB2: AGAGT
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Spleen
+    - age: 65w
+      cell_population: CD4+_naive
+      chains: TRA
+      name: m8_ct_65w_th_CD4naive_a
+      pattern.collect.SB1: AGGTC
+      pattern.collect.SB2: AGCAC
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Thymus
+    - age: 65w
+      cell_population: CD4+_naive
+      chains: TRA
+      name: m8_ct_65w_th_CD4mem_a
+      pattern.collect.SB1: AGTAA
+      pattern.collect.SB2: AGCTA
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Thymus
+    - age: 65w
+      cell_population: CD8+_naive
+      chains: TRA
+      name: m8_ct_65w_th_CD8naive_a
+      pattern.collect.SB1: AGTGG
+      pattern.collect.SB2: ATACC
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Thymus
+    - age: 65w
+      cell_population: CD8+_memory
+      chains: TRA
+      name: m8_ct_65w_th_CD8mem_a
+      pattern.collect.SB1: AGTTT
+      pattern.collect.SB2: ATAGG
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Thymus
+    - age: 65w
+      cell_population: CD4+_memory
+      chains: TRA
+      name: m4_ct_10w_spl_CD4mem_a_december
+      pattern.collect.SB1: GGCTG
+      pattern.collect.SB2: TTTAG
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Spleen
+    pattern: (SB1:NNNNN)cagtggtatcaacgcagagt(UMI:NNNNtNNNNtNNNN)tctt ~ (SB2:NNNNN)caggttctgggttctggatgt
+  cdna_library_type: RACE
+  date: 01.07.16
+  place: Evrogen
+  r1: ALPHA_S2_L001_R1_001.fastq.gz
+  r2: ALPHA_S2_L001_R2_001.fastq.gz
+  sequencer: MiSeq
+  species: Mus musculus
+- .:
+  - .:
+    - age: 65w
+      cell_population: CD4+_naive
+      chains: TRB
+      name: m7_ct_65w_th_CD4naive_b
+      pattern.collect.SB1: AAACT
+      pattern.collect.SB2: AACTC
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Thymus
+    - age: 65w
+      cell_population: CD8+_naive
+      chains: TRB
+      name: m7_ct_65w_th_CD8naive_b
+      pattern.collect.SB1: AAAGA
+      pattern.collect.SB2: AATGC
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Thymus
+    - age: 65w
+      cell_population: DP
+      chains: TRB
+      name: m7_ct_65w_th_dp_b
+      pattern.collect.SB1: AAGGT
+      pattern.collect.SB2: AATTG
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Thymus
+    - age: 65w
+      cell_population: CD4+_memory
+      chains: TRB
+      name: m7_ct_65w_th_CD4mem_b
+      pattern.collect.SB1: ACAAT
+      pattern.collect.SB2: ACCAA
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Thymus
+    - age: 65w
+      cell_population: CD8+_memory
+      chains: TRB
+      name: m7_ct_65w_th_CD8mem_b
+      pattern.collect.SB1: AGACA
+      pattern.collect.SB2: ACTGA
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Thymus
+    - age: 65w
+      cell_population: CD4+_naive
+      chains: TRB
+      name: m9_ct_65w_spl_CD4naive_b
+      pattern.collect.SB1: AGATG
+      pattern.collect.SB2: CAAGG
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Spleen
+    - age: 65w
+      cell_population: CD4+_naive
+      chains: TRB
+      name: m9_ct_65w_spl_CD4mem_b
+      pattern.collect.SB1: AGCCG
+      pattern.collect.SB2: CATCT
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Spleen
+    - age: 65w
+      cell_population: CD8+_naive
+      chains: TRB
+      name: m9_ct_65w_spl_CD8naive_b
+      pattern.collect.SB1: AGGCT
+      pattern.collect.SB2: CATTC
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Spleen
+    - age: 65w
+      cell_population: CD8+_memory
+      chains: TRB
+      name: m9_ct_65w_spl_CD8mem_b
+      pattern.collect.SB1: AGGGA
+      pattern.collect.SB2: CGACT
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Spleen
+    - age: 65w
+      cell_population: CD4+_naive
+      chains: TRB
+      name: m8_ct_65w_th_CD4naive_b
+      pattern.collect.SB1: AGGTC
+      pattern.collect.SB2: CTAAA
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Thymus
+    - age: 65w
+      cell_population: CD4+_naive
+      chains: TRB
+      name: m8_ct_65w_th_CD4mem_b
+      pattern.collect.SB1: AGTAA
+      pattern.collect.SB2: CTACG
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Thymus
+    - age: 65w
+      cell_population: CD8+_naive
+      chains: TRB
+      name: m8_ct_65w_th_CD8naive_b
+      pattern.collect.SB1: AGTGG
+      pattern.collect.SB2: CTCCT
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Thymus
+    - age: 65w
+      cell_population: CD8+_memory
+      chains: TRB
+      name: m8_ct_65w_th_CD8mem_b
+      pattern.collect.SB1: AGTTT
+      pattern.collect.SB2: CTCTG
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Thymus
+    - age: 65w
+      cell_population: CD4+_memory
+      chains: TRB
+      name: m4_ct_10w_spl_CD4mem_b_december
+      pattern.collect.SB1: GGCTG
+      pattern.collect.SB2: TCGTG
+      project_name: Mice_aging
+      strain: BALB/c
+      tissue: Spleen
+    pattern: (SB1:NNNNN)cagtggtatcaacgcagagt(UMI:NNNNtNNNNtNNNN)tctt ~ (SB2:NNNNN)gtcacatttctcagatcct
+  cdna_library_type: RACE
+  date: 01.07.16
+  place: Evrogen
+  r1: BETA_S4_L001_R1_001.fastq.gz
+  r2: BETA_S4_L001_R2_001.fastq.gz
+  sequencer: MiSeq
+  species: Mus musculus
