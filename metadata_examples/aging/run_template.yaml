@@ -1,0 +1,13 @@
+requires:
+    - migec
+    - mixcr
+    - mixcr_from_migec
+preprocess:
+    - batch:
+        - migec -Xmx20G CheckoutBatch -cute $wd/barcodes.txt $od/checkout/
+        - migec -Xmx20G Histogram $od/checkout/ $od/histogram/
+        - migec -Xmx40G AssembleBatch --force-collision-filter --force-overseq 2 --default-mask 0:1 $od/checkout/ $od/histogram/ $od/assemble/
+    - single: not_implemented
+analysis:
+    - batch: mixcr_from_migec -s hs -c TRB --error-correction-ratio 0.01 $wd/barcodes.txt $od/assemble/ $od/mixcr/
+    - single: not_implemented
